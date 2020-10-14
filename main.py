@@ -28,13 +28,13 @@ if __name__ == '__main__':
     }
     code = requests.get(
         'https://graph.microsoft.com/v1.0/me/messages', headers=header).status_code
-    if code.status_code == 200:
+    if code == 200:
         print('mail success')
     else:
         raise ValueError('mail fail')
     code = requests.get(
         'https://graph.microsoft.com/v1.0/me/drive/root/children', headers=header).status_code
-    if code.status_code == 200:
+    if code == 200:
         print('drive success')
     else:
         raise ValueError('drive fail')
