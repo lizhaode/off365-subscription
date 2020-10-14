@@ -1,0 +1,29 @@
+name: auto subscription
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron:  '* */6 * * *'
+     
+env:
+  tenant_id: ${{secrets.tenant_id}}
+  client_id: ${{secrets.client_id}}
+  client_secret: ${{secrets.client_secret}}
+  user_name: ${{secrets.user_name}}
+  pass_word: ${{secrets.pass_word}}
+
+jobs:
+  run_main:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+    steps:
+      - uses: actions/checkout@v2.3.3
+      - name: install requirement
+        run: pip3 install -r requirements.txt
+      - name: run script
+        run: python3 ./main.py
