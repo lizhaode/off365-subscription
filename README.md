@@ -1,5 +1,7 @@
 # OFFICE365 E5 激活
 
+![auto subscription](https://github.com/lizhaode/office365-subscription/workflows/auto%20subscription/badge.svg)
+
 保持反复调用 office 365 的接口可以续订 E5
 
 我的帐号已经两次续期成功了
